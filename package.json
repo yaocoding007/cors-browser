@@ -1,40 +1,37 @@
 {
-  "name": "electron-quick-start",
+  "name": "cors-browser",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A browser that can bypass CORS restrictions",
   "main": "main.js",
   "scripts": {
     "dev": "electron .",
     "build": "electron-builder"
   },
   "build": {
-    "productName": "cors-browser",    
+    "productName": "跨域浏览器",
     "appId": "cors.browser.lly",
     "directories": {
-        "output": "build" 
+      "output": "build"
     },
     "mac": {
-        "target": "dmg"
+      "target": "dmg",
+      "icon": "static/icon/cors.icns"
     },
     "dmg": {
-        "backgroundColor": "#fff"
+      "backgroundColor": "#fff"
     }
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/yaocoding007/cors-browser",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "browser",
+    "cors"
   ],
-  "author": "GitHub",
+  "author": "lly",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^14.2.1",
     "electron-builder": "^24.9.1"
   },
-  "dependencies": {
-    "url": "^0.11.3"
-  }
+  "dependencies": {}
 }

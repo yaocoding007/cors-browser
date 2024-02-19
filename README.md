@@ -9,6 +9,6 @@
 1. CommandOrControl+B 返回首页
 2. CommandOrControl+K 打开控制台
 
-TODO: 
-1. 可以保存固定参数
 
+
+png->icns: https://anyconv.com/png-to-icns-converter/#google_vignette
