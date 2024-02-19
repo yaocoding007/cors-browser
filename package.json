@@ -4,7 +4,21 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "dev": "electron ."
+    "dev": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "productName": "cors-browser",    
+    "appId": "cors.browser.lly",
+    "directories": {
+        "output": "build" 
+    },
+    "mac": {
+        "target": "dmg"
+    },
+    "dmg": {
+        "backgroundColor": "#fff"
+    }
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,7 +31,8 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^14.2.1"
+    "electron": "^14.2.1",
+    "electron-builder": "^24.9.1"
   },
   "dependencies": {
     "url": "^0.11.3"

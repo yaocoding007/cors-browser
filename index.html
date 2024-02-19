@@ -5,14 +5,17 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <title>跨域浏览器</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
+    <div id="loading">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><linearGradient id='a9'><stop offset='0' stop-color='#FF156D' stop-opacity='0'></stop><stop offset='1' stop-color='#FF156D'></stop></linearGradient><circle fill='none' stroke='url(#a9)' stroke-width='15' stroke-linecap='round' stroke-dasharray='0 44 0 44 0 44 0 44 0 360' cx='100' cy='100' r='70' transform-origin='center'><animateTransform type='rotate' attributeName='transform' calcMode='discrete' dur='2' values='360;324;288;252;216;180;144;108;72;36' repeatCount='indefinite'></animateTransform></circle></svg>
+    </div>
+    <h1>跨域浏览器    <code>command+B返回主页</code></h1>
+    <input id="url" type="text">
+    <button id="btn">加载</button>
+    <h3>历史记录</h3>
+    <ul id="history"></ul>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
   </body>
