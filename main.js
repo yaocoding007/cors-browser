@@ -4,6 +4,12 @@ const path = require('path')
 
 let mainWindow = null
 
+
+function destroyShortcuts() {
+  globalShortcut.unregister('CommandOrControl+B');
+  globalShortcut.unregister('CommandOrControl+K');
+}
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
@@ -20,6 +26,27 @@ function createWindow() {
     mainWindow.loadURL(url)
   })
 
+
+  mainWindow.on('focus', () => {
+    globalShortcut.register('CommandOrControl+B', () => {
+      mainWindow.loadFile('index.html')
+    })
+  
+    globalShortcut.register('CommandOrControl+K', () => {
+      mainWindow.webContents.openDevTools()
+    })
+  })
+
+  mainWindow.on('blur', () => {
+    destroyShortcuts()
+  })
+
+  // 在窗口关闭时注销全局快捷键
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+    destroyShortcuts()
+  });
+
   mainWindow.loadFile('index.html')
 }
 
@@ -28,16 +55,10 @@ function createWindow() {
 app.whenReady().then(() => {
   createWindow()
 
-  globalShortcut.register('CommandOrControl+B', () => {
-    mainWindow.loadFile('index.html')
-  })
-
-  globalShortcut.register('CommandOrControl+K', () => {
-    mainWindow.webContents.openDevTools()
-  })
-
   app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
   })
 })
 

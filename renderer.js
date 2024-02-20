@@ -11,8 +11,11 @@ const loading = document.getElementById('loading')
 loading.style.display = 'none'
 
 const setButton = document.getElementById('btn')
-setButton.addEventListener('click', () => {
-    const urlInput = document.getElementById('url')
+
+// 获取输入框
+const urlInput = document.getElementById('url')
+
+function go2Page() {
     const url = urlInput.value
     if(!url) {
         alert('请输入URL')
@@ -24,6 +27,16 @@ setButton.addEventListener('click', () => {
     localStorage.setItem('list', JSON.stringify(newList))
     loading.style.display = 'block'
     window.EDK.showPage(url)
+}
+
+urlInput.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+    go2Page()
+  }
+});
+
+setButton.addEventListener('click', () => {
+    go2Page();
 })
 
 
@@ -36,6 +49,7 @@ listData.forEach((url) => {
     li.addEventListener('click', () => {
         const urlInput = document.getElementById('url')
         urlInput.value = url
+        urlInput.focus();
     })
     listEl.appendChild(li)
 })
